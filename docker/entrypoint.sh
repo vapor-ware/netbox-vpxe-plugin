@@ -59,4 +59,4 @@ fi
 
 # Run migrations and development server.
 ./manage.py migrate
-while true; do find /src/ -name '*.py' | entr -d ./manage.py runserver 0.0.0.0:8000; done
+while true; do find /src -name '*.py' | entr -d -n ./manage.py runserver 0.0.0.0:8000; done
