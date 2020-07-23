@@ -37,12 +37,12 @@ class BootConfig(models.Model):
 
 class BootProfile(models.Model):
     name = models.CharField(max_length=64)
-    boot_config = models.ForeignKey(
+    config = models.ForeignKey(
         to=BootConfig,
         on_delete=models.CASCADE,
     )
 
-    boot_image = models.ForeignKey(
+    image = models.ForeignKey(
         to=BootImage,
         on_delete=models.CASCADE,
     )
