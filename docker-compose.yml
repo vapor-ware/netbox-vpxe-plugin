@@ -13,9 +13,10 @@ services:
     - redis
     env_file:
     - docker/dev.env
-    user: '101'
+    user: '1000'
     volumes:
     - ./docker/configuration.py:/opt/netbox/netbox/netbox/configuration.py
+    - ./netbox_vpxe_plugin:/src/netbox_vpxe_plugin
     tty: true
 
   worker:
@@ -28,7 +29,7 @@ services:
     - netbox
     env_file:
     - docker/dev.env
-    user: '101'
+    user: '1000'
     volumes:
     - ./docker/configuration.py:/opt/netbox/netbox/netbox/configuration.py
     tty: true
