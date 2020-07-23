@@ -24,6 +24,9 @@ class BootConfig(models.Model):
     name = models.CharField(max_length=64)
     config = models.TextField()
 
+    def __str__(self):
+        return self.name
+
     type = models.CharField(
         max_length=30,
         choices=BootConfigTypeChoices,
@@ -46,6 +49,9 @@ class BootProfile(models.Model):
         to=BootImage,
         on_delete=models.CASCADE,
     )
+
+    def __str__(self):
+        return self.name
 
     class Meta:
         verbose_name = 'Boot Profile'
