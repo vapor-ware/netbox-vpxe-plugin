@@ -1,9 +1,10 @@
 from django.db import models
+from utilities.models import ChangeLoggedModel
 from dcim.models import DeviceType
 from .choices import OperatingSystemChoices, BootConfigTypeChoices
 
 
-class BootImage(models.Model):
+class BootImage(ChangeLoggedModel):
     name = models.CharField(max_length=64)
     url = models.URLField()
     family = models.CharField(
@@ -20,7 +21,7 @@ class BootImage(models.Model):
         verbose_name_plural = 'Boot Images'
 
 
-class BootConfig(models.Model):
+class BootConfig(ChangeLoggedModel):
     name = models.CharField(max_length=64)
     config = models.TextField()
 
@@ -38,7 +39,7 @@ class BootConfig(models.Model):
         verbose_name_plural = 'Boot Configs'
 
 
-class BootProfile(models.Model):
+class BootProfile(ChangeLoggedModel):
     name = models.CharField(max_length=64)
     config = models.ForeignKey(
         to=BootConfig,
